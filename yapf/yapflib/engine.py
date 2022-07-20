@@ -1,7 +1,7 @@
 import ast
 from ast import Assign
 
-from yapf.yapflib.warning_remover.lint_warnings import cui, ddv, cue, cuw, sc
+from yapf.yapflib import cui, ddv, cue, cuw, sc
 
 def dump(tree:ast.AST) -> None:
     print(ast.dump(tree, indent=4))
