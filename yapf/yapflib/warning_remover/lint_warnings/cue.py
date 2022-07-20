@@ -1,7 +1,6 @@
 import ast
 from ast import Call, For, Load, Name, Store
 
-from helpers import dump
 
 def fix(node:ast.For) -> ast.For:
     match node:

@@ -2,8 +2,6 @@ import ast
 from ast import Compare, Constant, Eq, Is
 from typing import List, Tuple
 
-from helpers import dump
-
 def fix(node:ast.Compare) -> ast.Compare:
     match node:
         case (Compare(ops=[Eq()],comparators=[Constant(value=True)]) |

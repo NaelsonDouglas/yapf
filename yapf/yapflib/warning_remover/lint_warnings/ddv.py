@@ -1,8 +1,6 @@
 import ast
 from typing import List, Tuple
 
-from helpers import dump
-
 MUTABLE_TYPES = (ast.List, ast.Dict, ast.Set) #TODO check if there is a built-in way to check if a node is mutable
 
 def fix(node:ast.FunctionDef) -> ast.FunctionDef:

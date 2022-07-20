@@ -1,7 +1,6 @@
 import ast
 from ast import Call, For, Load, Name, Store, Assign, Expr, Attribute, Constant
 from typing import List, Tuple
-from helpers import dump
 
 _OPEN_STREAM = Assign(value=Call(func=Name(id='open')))
 _CLOSE_STREAM = Expr(value=Call(func=Attribute(value=Name(ctx=Load()),attr='close',ctx=Load())))
