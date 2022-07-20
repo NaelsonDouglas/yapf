@@ -104,7 +104,9 @@ def FormatFile(filename,
       file_resources.WriteReformattedCode(filename, reformatted_source,
                                           encoding, in_place)
     return None, encoding, changed
-
+  tree = ast.parse(reformatted_source)
+  result = Visitor().visit(tree)
+  reformatted_source = ast.unparse(result)
   return reformatted_source, encoding, changed
 
 
