@@ -35,6 +35,7 @@ These APIs have some common arguments:
 import difflib
 import re
 import sys
+import ast
 
 from yapf.pytree import pytree_unwrapper
 from yapf.pytree import pytree_utils
