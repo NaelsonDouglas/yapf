@@ -1,14 +1,12 @@
 import ast
 from ast import Assign
 
-from detection import execute
-from lint_warnings import cui
-from lint_warnings import ddv
-from lint_warnings import cue
-from lint_warnings import cuw
-from lint_warnings import sc
+from yapf.yapflib.warning_remover.engine import Visitor
+from yapf.yapflib.warning_remover.detection import execute
+from yapf.yapflib.warning_remover.lint_warnings import cui, ddv, cue, cuw, sc
 
-from helpers import dump
+from yapf.yapflib.warning_remover.helpers import dump
+
 class Visitor(ast.NodeTransformer):
     def visit_BoolOp(self, node:ast.BoolOp) -> ast.BoolOp:
         fixed = node
