@@ -1,9 +1,7 @@
 import ast
 from ast import Assign
 
-from yapf.yapflib.warning_remover.detection import execute
 from yapf.yapflib.warning_remover.lint_warnings import cui, ddv, cue, cuw, sc
-
 from yapf.yapflib.warning_remover.helpers import dump
 
 class Visitor(ast.NodeTransformer):
@@ -42,18 +40,3 @@ def _ast_main():
 if __name__ == '__main__':
     tree, r = _ast_main()
     print(ast.unparse(tree))
-
-# def _pylint_main():
-#     FILE = 'samples/ddv_sample.py'
-#     codes = {
-#         'ddv' : 'W0102',
-#         'cui' : 'R1714'
-#     }
-
-#     enabled = ','.join([
-#         codes['ddv'],
-#         codes['cui']
-#     ])
-
-#     r = execute(FILE, ['--disable=all', f'--enable={enabled}', '--output-format=json'])
-#     return r
