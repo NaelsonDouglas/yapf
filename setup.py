@@ -83,4 +83,5 @@ with codecs.open('README.rst', 'r', 'utf-8') as fd:
       extras_require={
           'pyproject': ['toml'],
       },
+      install_requires = ['pylint']
   )
