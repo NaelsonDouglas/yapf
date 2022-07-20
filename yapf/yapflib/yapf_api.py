@@ -105,9 +105,6 @@ def FormatFile(filename,
       file_resources.WriteReformattedCode(filename, reformatted_source,
                                           encoding, in_place)
     return None, encoding, changed
-  tree = ast.parse('1')
-  result = engine.Visitor().visit(tree)
-  reformatted_source = ast.unparse(result)
   return reformatted_source, encoding, changed
 
 
@@ -179,7 +176,9 @@ def FormatCode(unformatted_source,
     desired formatting style. changed is True if the source changed.
   """
   try:
-    tree = pytree_utils.ParseCodeToTree(unformatted_source)
+    tree = ast.parse(unformatted_source)
+    result = engine.Visitor().visit(tree)
+    tree = pytree_utils.ParseCodeToTree(ast.unparse(result))
   except Exception as e:
     e.filename = filename
     raise errors.YapfError(errors.FormatErrorMsg(e))
