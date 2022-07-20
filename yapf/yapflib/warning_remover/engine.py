@@ -1,7 +1,6 @@
 import ast
 from ast import Assign
 
-from yapf.yapflib.warning_remover.engine import Visitor
 from yapf.yapflib.warning_remover.detection import execute
 from yapf.yapflib.warning_remover.lint_warnings import cui, ddv, cue, cuw, sc
 
