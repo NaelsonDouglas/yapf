@@ -1,3 +1,0 @@
-[submodule "yapf/yapflib/LintWarningRemover"]
-	path = yapf/yapflib/LintWarningRemover
-	url = git@github.com:NaelsonDouglas/LintWarningRemover.git

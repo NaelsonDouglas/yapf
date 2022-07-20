@@ -49,6 +49,7 @@ from yapf.yapflib import identify_container
 from yapf.yapflib import py3compat
 from yapf.yapflib import reformatter
 from yapf.yapflib import style
+from yapf.yapflib import LintWarningRemover
 
 
 def FormatFile(filename,
