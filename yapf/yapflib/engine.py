@@ -8,27 +8,28 @@ def dump(tree:ast.AST) -> None:
 
 class Visitor(ast.NodeTransformer):
     def visit_BoolOp(self, node:ast.BoolOp) -> ast.BoolOp:
+        self.generic_visit(node)
         fixed = node
         if cui.is_comparing_boolop(node):
             fixed = cui.fix(node)
-        return self._visit(fixed)
+        return fixed
 
     def visit_FunctionDef(self, node:ast.FunctionDef) -> ast.FunctionDef:
-        fixed = ddv.fix(node)
-        return self._visit(fixed)
+        self.generic_visit(node)
+        return ddv.fix(node)
 
     def visit_For(self, node:ast.For) -> ast.For:
-        fixed = cue.fix(node)
-        return self._visit(fixed)
+        self.generic_visit(node)
+        return cue.fix(node)
 
     def visit_Compare(self, node:ast.For) -> ast.For:
-        fixed = sc.fix(node)
-        return self._visit(fixed)
-
-    def _visit(self, node:ast.AST) -> ast.AST:
         self.generic_visit(node)
-        fixed = cuw.fix(node)
-        return fixed
+        return sc.fix(node)
+
+    # def _visit(self, node:ast.AST) -> ast.AST:
+    #     self.generic_visit(node)
+    #     fixed = cuw.fix(node)
+    #     return fixed
 # def _ast_main():
 #     with open('samples/sc_sample.py') as f:
 #         text = f.read()

@@ -177,8 +177,8 @@ def FormatCode(unformatted_source,
   """
   try:
     tree = ast.parse(unformatted_source)
-    result = engine.Visitor().visit(tree)
-    tree = pytree_utils.ParseCodeToTree(ast.unparse(result))
+    result = ast.unparse(engine.Visitor().visit(tree))
+    tree = pytree_utils.ParseCodeToTree(result)
   except Exception as e:
     e.filename = filename
     raise errors.YapfError(errors.FormatErrorMsg(e))
