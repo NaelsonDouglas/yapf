@@ -1,4 +1,39 @@
 ====
+YAPFA
+====
+
+
+YAPFA Introduction
+============
+Yapfa(Yet another Python formater again) is a fork from the Googles Yapf (Yet another Python formater) which extends its functionalities.
+Apart from performing all the formating offered by Yafp, this fork also includes an easy and extendible API allowing final users to define custom code formats which they want to format.
+
+To define a new pattern to be formated all it takes is to define how it should be formated under a method with the following signature:
+``def fix(node:ast.AST) -> ast.AST:``
+For example: `this source <https://github.com/NaelsonDouglas/yapf/blob/main/yapf/yapflib/cue.py>`_  formats blocks of code with the `consider-using-enumerate <https://pylint.pycqa.org/en/latest/user_guide/messages/convention/consider-using-enumerate.html>`_ lint-based warning, fix the node by applying a refactoring and returns the node fixed. This same fix method is then registered on the ast visitor as seen `here <https://github.com/NaelsonDouglas/yapf/blob/38aa9327f582a683ef51696aafaff80bd3ba1121/yapf/yapflib/engine.py#L21>`_
+In order to extend its refatoring functionalities all it takes is to define a 'fix' method and register it on the visitor
+
+YAPFA Installation and usage
+============
+
+To execute the linter all it takes is to:
+1: Create a new virtual environment and activate it
+``python -m venv env
+source env/bin/activate
+``
+
+2: Install YAPFA using pip
+``pip install git+https://github.com/NaelsonDouglas/yapf``
+
+3: Open Vscode and add the following key to the settings.json
+```
+"python.formatting.provider": "yapf",
+```
+
+4: Then all it takes is to execute the command ``Format document`` on the Vscode command pallet (Crtrl+Shift+P)
+
+
+====
 YAPF
 ====
 
