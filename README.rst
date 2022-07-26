@@ -5,7 +5,7 @@ YAPFA
 
 YAPFA Introduction
 ============
-Yapfa(Yet another Python formater again) is a fork from the Googles Yapf (Yet another Python formater) which extends its functionalities.
+Yapfa(Yet another Python formatter again) is a fork from the Googles Yapf (Yet another Python formatter) which extends its functionalities.
 Apart from performing all the formating offered by Yafp, this fork also includes an easy and extendible API allowing final users to define custom code formats which they want to format.
 
 To define a new pattern to be formated all it takes is to define how it should be formated under a method with the following signature:
