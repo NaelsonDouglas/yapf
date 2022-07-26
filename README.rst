@@ -17,6 +17,7 @@ YAPFA Installation and usage
 ============
 
 To execute the linter all it takes is to:
+
 1: Create a new virtual environment and activate it
 ``python -m venv env
 source env/bin/activate
